@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kesem Galmidi, creative strategist. Consumer psychology for paid social: case studies, scripts and briefs.">
+<meta property="og:title" content="Kesem Galmidi · Creative Strategist">
+<meta property="og:description" content="Before I write a word, I already know what the audience is thinking and feeling.">
+<meta property="og:image" content="media/kesem-circle.jpg">
+</head>
+<body>
+<title>Kesem Galmidi · Creative Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: white editorial page, one column that breathes; bordeaux as a hand-drawn mark, not a fill.
+   English (LTR) edition of the Hebrew site, same tokens, same structure. Single deliberate light theme: the owner asked for a white site. */
+:root{
+  --bg:#FFFFFF; --fg:#111111; --muted:#6B6560; --line:#E9E5DF; --soft:#F6F4F0;
+  --accent:#7A1125; --accent-ink:#5E0C1C; --black:#0B0B0B; --on-black:#F4F1EC; --rose:#F2A7B5;
+  --display:'Rubik',system-ui,sans-serif; --body:'Assistant',system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:18px;line-height:1.6;direction:ltr;text-align:left;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-0.01em}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-size:13px;letter-spacing:.2em;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap;text-transform:uppercase}
+.eyebrow svg{flex:none}
+.goal{display:inline-block;background:var(--accent);color:#fff;padding:2px 10px;border-radius:999px;letter-spacing:.08em;font-size:12px}
+.band .eyebrow{color:var(--rose)}
+.band .goal{background:var(--rose);color:var(--black)}
+.mark{position:relative;display:inline-block}
+.mark svg{position:absolute;right:-2%;left:-2%;bottom:-6px;width:104%;height:14px;pointer-events:none}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:13px 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;border:1.5px solid var(--fg);min-height:44px}
+.btn.fill{background:var(--fg);color:#fff}
+.btn.acc{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
+.nav .brand{font-family:var(--display);font-weight:700;font-size:19px}
+.nav .links{display:flex;gap:22px;font-size:15px;color:var(--muted)}
+.nav .links a{text-decoration:none}
+.nav .note{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.06em;margin-left:4px;vertical-align:top}
+@media(max-width:720px){.nav .links{display:none}}
+
+/* hero */
+.hero{padding-block:48px 28px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:center}
+.hero h1{font-size:clamp(58px,9.5vw,124px);font-weight:900;line-height:.92;letter-spacing:-.03em}
+.hero .kicker{font-family:var(--display);font-size:17px;color:var(--accent);margin-top:10px;letter-spacing:.02em}
+.hero .role{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.25;margin-top:22px}
+.hero .promise{font-family:var(--display);font-size:clamp(18px,1.8vw,21px);font-weight:500;margin-top:18px;padding-left:16px;border-left:3px solid var(--accent);line-height:1.45;max-width:600px}
+.hero .lead{font-size:clamp(19px,2vw,23px);line-height:1.5;max-width:620px;margin-top:22px}
+.hero .photo{aspect-ratio:1/1;width:100%;max-width:100%;object-fit:cover;object-position:50% 50%;border-radius:50%}
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:28px}.hero .photo{max-width:260px}}
+
+/* feed strip */
+.feed{margin-top:40px;position:relative}
+.feed .track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-block:6px 18px;scrollbar-width:none;direction:ltr}
+.feed .track::-webkit-scrollbar{display:none}
+.feed .cell{flex:0 0 clamp(150px,18vw,210px);aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--black);scroll-snap-align:start;position:relative}
+.feed video{width:100%;height:100%;object-fit:cover;display:block}
+.feed .tag{position:absolute;bottom:10px;right:10px;left:10px;font-size:12px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);font-weight:600}
+.feed .hint{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px}
+.feed a.cell{text-decoration:none;color:inherit;display:block}
+
+/* numbers */
+.nums{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:28px}
+.nums .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-block:28px}
+.nums b{display:block;font-family:var(--display);font-size:clamp(34px,4vw,54px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.nums span{font-size:14px;color:var(--muted)}
+@media(max-width:720px){.nums .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* case logo */
+.case-logo{display:block;height:46px;width:auto;max-width:170px;object-fit:contain;margin-bottom:16px}
+.case-logo.big{height:76px;max-width:220px}
+.case-logo.pcm{height:44px;border-radius:6px}
+
+/* testimonials (text, translated) */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px;align-items:start}
+.quotes .col{display:flex;flex-direction:column;gap:16px}
+.quote{background:var(--soft);border-radius:14px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:14px;position:relative;min-width:0}
+.quote::before{content:"\201C";font-family:var(--display);font-weight:900;font-size:64px;line-height:.6;color:var(--rose);display:block;height:26px}
+.quote p{margin:0;font-family:var(--display);font-weight:500;font-size:18px;line-height:1.45}
+.quote small{font-size:13px;color:var(--muted);letter-spacing:.04em}
+.quote small b{color:var(--fg);font-weight:600}
+@media(max-width:820px){.quotes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.quotes{grid-template-columns:1fr}}
+.pcm-quote{max-width:560px;background:#E7F7D8;color:#111;border-radius:14px 14px 14px 4px;padding:18px 20px;font-family:var(--display);font-weight:500;font-size:19px;line-height:1.4;position:relative}
+.pcm-quote small{display:block;margin-top:10px;font-family:var(--body);font-weight:400;font-size:13px;color:#4F5A47;letter-spacing:.04em}
+.translated{font-size:13px;color:var(--muted);letter-spacing:.04em}
+
+/* case index */
+.more .sec-head h2{font-size:clamp(28px,3.6vw,44px)}
+.case-index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+.case-index a{position:relative;display:block;aspect-ratio:9/13;border-radius:14px;overflow:hidden;background:#1C1C1C;text-decoration:none;color:#fff}
+.case-index img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform .4s}
+.case-index a:hover img{transform:scale(1.04)}
+.case-index span{position:absolute;inset:auto 0 0 0;padding:16px;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;flex-direction:column;gap:4px}
+.case-index b{font-family:var(--display);font-size:18px;line-height:1.2}
+.case-index small{font-size:13px;color:#D8D2CB}
+.case-index a::after{content:"↓";position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:var(--rose);color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:700}
+@media(max-width:720px){.case-index{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.case-index img{transition:none}}
+.final{padding-block:120px 48px}
+.final-in{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px}
+.final h2{font-size:clamp(40px,6.5vw,84px);font-weight:900;line-height:1.02;letter-spacing:-.03em;max-width:900px}
+.final p{margin:0;font-size:18px;color:#B9B2AA;letter-spacing:.04em}
+.final .btn.big{background:#fff;color:var(--black);border-color:#fff;font-size:20px;padding:20px 38px;gap:12px;margin-top:10px}
+.final .btn.big:hover{background:var(--rose);border-color:var(--rose)}
+.final .offer{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;text-align:left;font-size:18px;line-height:1.5;color:var(--on-black)}
+.final .offer li::before{content:"✦";color:var(--rose);margin-right:10px;font-size:13px}
+.final small{font-size:14px;color:#B9B2AA}
+.final small b{color:var(--on-black);user-select:all}
+.final footer{width:100%;margin-top:60px;border-color:#2A2A2A;color:#8F8880}
+@media(max-width:720px){.final{padding-block:80px 32px}.final .btn.big,.cta-box .btn.big{font-size:17px;padding:16px 26px}}
+
+/* sections */
+section{padding-block:96px}
+@media(max-width:720px){section{padding-block:64px}}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:760px}
+.sec-head h2{font-size:clamp(36px,5vw,62px);font-weight:800;line-height:1.05}
+.sec-head p{margin:0;font-size:20px;color:var(--muted);line-height:1.6}
+
+/* how I think */
+.think{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+.think .sec-head h2{font-size:clamp(32px,3.6vw,48px)}
+.think ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.steps-intro{font-family:var(--display);font-weight:600;color:var(--fg)!important;margin-top:8px!important}
+.flow li{position:relative;margin:0;display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start}
+.flow li .n{width:52px;height:52px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--display);font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;margin-top:10px}
+.flow li>div{padding:22px 26px;border:1px solid var(--line);border-radius:10px;background:#fff;min-width:0}
+.flow li+li{margin-top:28px}
+.flow li+li::before{content:"";position:absolute;top:-28px;left:25px;width:2px;height:28px;background:var(--accent)}
+.flow li+li::after{content:"";position:absolute;top:-10px;left:20px;width:10px;height:10px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg)}
+.flow li:last-child .n{background:var(--fg)}
+.flow li h3{font-size:22px;font-weight:600;margin-bottom:6px;line-height:1.25}
+.flow li p{margin:0;color:var(--muted);font-size:17px}
+.flow li:last-child>div{background:var(--fg);color:#fff;border-color:var(--fg)}
+.flow li:last-child p{color:#CFC9C2}
+@media(max-width:820px){.think{grid-template-columns:1fr;gap:28px}}
+
+/* case */
+.case{display:grid;grid-template-columns:360px minmax(0,1fr);gap:56px;align-items:start}
+.case.flip{grid-template-columns:minmax(0,1fr) 360px}
+.case.flip .player,.case.flip .hooks,.case.flip .side{order:2}
+@media(max-width:860px){.case,.case.flip{grid-template-columns:1fr;gap:28px}.case.flip .player,.case.flip .hooks,.case.flip .side{order:0}.player{max-width:320px}}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ad-copy{margin:0;font-size:14px;color:var(--muted);line-height:1.5;max-width:360px}
+.ad-copy b{color:var(--fg);font-weight:600}
+.player{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:22px;overflow:hidden;background:var(--black);box-shadow:0 30px 60px rgba(0,0,0,.14)}
+.player.r45{aspect-ratio:4/5;border-radius:12px}
+.player video,.player img{width:100%;height:100%;object-fit:cover;display:block}
+.player button{position:absolute;inset:0;width:100%;height:100%;background:transparent;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.player button span{width:76px;height:76px;border-radius:50%;border:1.5px solid #fff;background:rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.player.playing button span{opacity:0}
+.player .stat{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--fg);font-family:var(--display);font-weight:700;font-size:15px;padding:6px 12px;border-radius:999px}
+.player .cc{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.55);color:#fff;font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:.08em;padding:4px 8px;border-radius:6px;border:1px solid rgba(255,255,255,.5)}
+.case .text{display:flex;flex-direction:column;gap:28px;min-width:0}
+.case .title h2{font-size:clamp(34px,4.6vw,56px);font-weight:800;line-height:1.05;margin-top:12px}
+.brand-line{font-size:17px;color:var(--muted);margin-top:14px;line-height:1.5}
+.brand-line b{color:var(--fg);font-weight:600}
+.band .brand-line b{color:var(--on-black)}
+.case .kpis{display:flex;gap:36px;flex-wrap:wrap}
+.case .kpis b{display:block;font-family:var(--display);font-size:46px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.case .kpis span{font-size:14px;color:var(--muted)}
+.blk h4{margin:0 0 6px;font-size:13px;letter-spacing:.18em;color:var(--muted);font-weight:700;text-transform:uppercase}
+.blk p{margin:0;font-size:18px;line-height:1.65}
+.blk p+p{margin-top:10px}
+.blk ul{margin:0;padding-left:20px;font-size:18px;line-height:1.65}
+.blk li+li{margin-top:6px}
+.blk li::marker{color:var(--accent)}
+.insight{background:var(--soft);padding:26px 28px;border-radius:6px;position:relative}
+.insight h4{color:var(--accent)}
+.insight p{font-family:var(--display);font-size:clamp(20px,2.2vw,26px);line-height:1.35;font-weight:500}
+.insight svg.corner{position:absolute;right:18px;top:18px}
+.band .insight{background:#1C1C1C}
+.band .insight h4{color:var(--rose)}
+.learned{border-left:3px solid var(--accent);padding-left:18px}
+.learned p{font-family:var(--display);font-weight:500;font-size:19px;line-height:1.45}
+
+/* proof: the ads-manager row, and two zoomed-in tiles under it */
+.proof{margin:0;display:flex;flex-direction:column;gap:12px}
+.proof .strip{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.proof .strip img{display:block;width:100%;max-width:100%}
+.proof figcaption{font-size:13px;color:var(--muted)}
+.zooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:520px}
+.zoom{border:2px solid var(--fg);border-radius:10px;overflow:hidden;background:#fff;box-shadow:0 14px 30px rgba(0,0,0,.12)}
+.zoom img{display:block;width:100%;max-width:100%}
+.zoom small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--fg);padding:6px 10px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+.band .zoom{border-color:var(--on-black)}
+.band .proof figcaption{color:#B9B2AA}
+
+/* grids */
+.series{margin-top:40px}
+.series h3{font-size:13px;letter-spacing:.18em;color:var(--muted);font-weight:700;text-transform:uppercase}
+.mini{display:flex;gap:10px;margin-top:12px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin}
+.mini .cell{flex:0 0 112px;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:var(--black);position:relative}
+.mini video{width:100%;height:100%;object-fit:cover;display:block}
+.mini .cap{position:absolute;bottom:6px;right:6px;left:6px;color:#fff;font-size:10px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,.7);line-height:1.2}
+.mini.ads .cell{flex-basis:150px;aspect-ratio:4/5}
+.mini img{width:100%;height:100%;object-fit:cover;display:block}
+.mini .cap.win{background:var(--accent);color:#fff;right:auto;left:6px;bottom:auto;top:6px;padding:2px 8px;border-radius:999px;text-shadow:none;font-size:10px}
+.series .ad-copy{margin-top:10px;max-width:640px}
+
+/* two hooks */
+.hooks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:560px}
+@media(max-width:720px){.hooks{max-width:100%}}
+.hooks .player{box-shadow:none;border-radius:16px}
+.hooks small{display:block;margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* band */
+.band{background:var(--black);color:var(--on-black)}
+.band .muted,.band .blk h4,.band .kpis span,.band .brand-line{color:#B9B2AA}
+
+/* analysis */
+.reels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:44px}
+.story{display:flex;justify-content:center;margin-top:80px;padding-top:64px;border-top:1px solid #2A2A2A}
+.story-text{display:flex;flex-direction:column;gap:20px;font-size:19px;line-height:1.75;max-width:680px;text-align:center;align-items:center}
+.story-text p{margin:0}
+.story-text .big{font-family:var(--display);font-size:clamp(23px,2.6vw,30px);font-weight:500;line-height:1.35}
+.story-text em{font-style:normal;color:#fff;background:linear-gradient(transparent 55%,rgba(122,17,37,.9) 55%);padding:0 3px}
+.an-lead{margin:0;font-size:20px;line-height:1.6;color:#B9B2AA}
+.an-lead .hl{color:var(--rose);font-weight:700}
+.reels .player{box-shadow:none;border-radius:12px}
+.reels .player .stat{font-size:12px;padding:4px 9px;top:10px;left:10px}
+.reels .player .cc{top:10px;right:10px;font-size:10px;padding:3px 6px}
+.reels small{display:block;margin-top:8px;font-size:13px;color:#B9B2AA;line-height:1.3}
+@media(max-width:1000px){.reels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.reels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* contact */
+.cta h2{font-size:clamp(44px,7vw,92px);font-weight:900;line-height:1.02;letter-spacing:-.03em;max-width:900px}
+.cta-lead{font-size:20px;color:var(--muted);max-width:640px;margin:20px 0 0;line-height:1.6}
+.cta-box{margin-top:48px;padding:56px 32px;background:var(--accent);color:#fff;border-radius:14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.cta-role{font-family:var(--display);font-size:clamp(34px,4vw,48px);font-weight:900;line-height:1.05;letter-spacing:-.02em}
+.cta-skills{font-size:18px;color:#F2C9D1;letter-spacing:.06em}
+.cta-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:22px}
+.cta-box .btn.big{background:#fff;color:var(--accent);border-color:#fff;font-size:19px;padding:18px 34px;gap:12px}
+.cta-box .cta-note{color:#F2C9D1}
+.cta-box .cta-phone{color:#fff}
+.cta-phone{font-weight:600;user-select:all;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--fg)}
+.cta-list{margin:22px 0 0;padding:0 0 0 22px;font-size:18px;line-height:1.7;max-width:640px;display:flex;flex-direction:column;gap:6px}
+.cta-list li::marker{color:var(--accent)}
+.cta-x{font-family:var(--display);font-size:clamp(20px,2.3vw,26px);font-weight:500;line-height:1.4;max-width:760px;margin:28px 0 0}
+.cta-note{font-size:14px;color:var(--muted)}
+.cta-how{margin:28px 0 0;font-size:17px;color:var(--muted);max-width:640px;line-height:1.6}
+.cta-how b{color:var(--fg);font-weight:600}
+.li-link{color:#fff;font-weight:600;font-size:15px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--rose)}
+.li-link:hover{color:var(--rose)}
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:14px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+
+<div class="wrap">
+  <nav class="nav" aria-label="Site">
+    <div class="brand">Kesem Galmidi</div>
+    <div class="links">
+      <a href="#tevel">Tevel Campers <sup class="note">CASE STUDY</sup></a><a href="#think">How I think</a><a href="#analysis">I analyze everything</a><a href="#more">More cases</a><a href="#quotes">Clients</a><a href="https://www.linkedin.com/in/kesem-galmidi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <a class="btn fill" href="#contact">Let's talk</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 7.2L21 12l-7.2 2.8L12 22l-1.8-7.2L3 12l7.2-2.8z" fill="currentColor"/></svg>Portfolio</div>
+      <h1 style="margin-top:18px">Kesem<br>Galmidi</h1>
+      <div class="kicker">(you can call me Magic)</div>
+      <div class="role">Creative Strategist · <span class="mark">Consumer psychology for paid social<svg viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 3, 120 12, 180 7 S 260 4, 298 8" fill="none" stroke="#7A1125" stroke-width="3" stroke-linecap="round"/></svg></span></div>
+      <p class="lead">I don't guess what will work on your audience. I get inside their head.<br>What they want, what drives them, what stops them from buying, and what will make them act.<br>Then I turn that into selling angles, concepts, scripts and briefs built to perform.</p>
+      <p class="promise">Not another pretty video. Creative built on how your audience actually thinks.</p>
+    </div>
+    <img class="photo" src="media/kesem-circle.jpg" alt="Kesem Galmidi">
+  </header>
+
+  <div class="feed" aria-label="Selected videos">
+    <div class="track" id="feed">
+      <a class="cell" href="#victory"><video src="media/victory-situations.mp4" poster="media/victory-situations.jpg" muted loop playsinline preload="none"></video><div class="tag">Victory · TikTok</div></a>
+      <a class="cell" href="#tevel"><video src="media/tevel-europe.mp4" poster="media/tevel-europe.jpg" muted loop playsinline preload="none"></video><div class="tag">Tevel Campers · $2.50 per lead</div></a>
+      <a class="cell" href="#victory"><video src="media/victory-which.mp4" poster="media/victory-which.jpg" muted loop playsinline preload="none"></video><div class="tag">Victory · TikTok</div></a>
+      <a class="cell" href="#anabella"><video src="media/anabella-pain.mp4" poster="media/anabella-pain.jpg" muted loop playsinline preload="none"></video><div class="tag">Anabella · launch campaign</div></a>
+      <a class="cell" href="#pcm"><video src="media/pcm-hook1.mp4" poster="media/pcm-hook1.jpg" muted loop playsinline preload="none"></video><div class="tag">PCM · B2B</div></a>
+      <a class="cell" href="#victory"><video src="media/victory-krembo.mp4" poster="media/victory-krembo.jpg" muted loop playsinline preload="none"></video><div class="tag">Victory · Krembo</div></a>
+      <a class="cell" href="#tevel"><video src="media/tv-first.mp4" poster="media/tv-first.jpg" muted loop playsinline preload="none"></video><div class="tag">Tevel Campers · first time in a camper?</div></a>
+      <a class="cell" href="#pcm"><video src="media/pcm-hook2.mp4" poster="media/pcm-hook2.jpg" muted loop playsinline preload="none"></video><div class="tag">PCM · hook 2</div></a>
+    </div>
+    <div class="hint"><span>Scroll down for the full videos with sound ↓</span><span>All videos are in Hebrew, with English subtitles</span></div>
+  </div>
+</div>
+
+<div class="nums"><div class="wrap"><div class="grid">
+  <div><b>8</b><span>years in marketing</span></div>
+  <div><b>100+</b><span>brands and business owners</span></div>
+  <div><b>10,000+</b><span>scripts written</span></div>
+  <div><b>Hundreds</b><span>of briefs for creators and teams</span></div>
+</div></div></div>
+
+<!-- TEVEL -->
+<section id="tevel" style="background:var(--soft)"><div class="wrap">
+  <div class="case">
+    <div class="player" data-player><video src="media/tevel-europe.mp4" poster="media/tevel-europe.jpg" playsinline preload="none"></video><button aria-label="Play with sound"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="stat">$2.50 per lead</div><div class="cc">EN SUBS</div></div>
+    <div class="text">
+      <div class="title">
+        <img class="case-logo big" src="media/logo-tevel.png" alt="Tevel Campers"><div class="eyebrow">Tevel Campers · Paid social · Cold audience · <span class="goal">Goal: leads</span></div>
+        <h2>“A new way to travel Europe”</h2>
+        <p class="brand-line"><b>Tevel Campers</b> is an Israeli travel brand selling camper-rental packages for Europe: the camper plus the flights, in one booking.</p>
+      </div>
+      <div class="kpis"><div><b>184</b><span>leads from one video</span></div><div><b>₪8.97</b><span>cost per lead · approx. $2.50</span></div><div><b>85%</b><span>of leads qualified</span></div></div>
+      <figure class="proof">
+        <div class="strip"><img src="media/tevel-data.png" alt="The campaign row in Meta Ads Manager: 184 leads, ₪8.97 per lead"></div>
+        <div class="zooms"><div class="zoom"><img src="media/tevel-z-leads.png" alt=""><small>184 · Leads (forms)</small></div><div class="zoom"><img src="media/tevel-z-cost.png" alt=""><small>₪8.97 · Cost per lead</small></div></div>
+        <figcaption>From Meta Ads Manager (Hebrew interface). ₪ = Israeli shekel; roughly 3.6 to the US dollar.</figcaption>
+      </figure>
+      <div class="blk"><h4>Before</h4>
+        <p>Nearly all of Tevel's leads came from influencer videos. They had worked, but by the time I came in they were fatiguing and cost per lead had climbed to around ₪20 (approx. $5.50). The open question: could brand-owned creative bring qualified leads at all, or was the brand dependent on creators?</p>
+      </div>
+      <div class="insight blk"><svg class="corner" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 7.2L21 12l-7.2 2.8L12 22l-1.8-7.2L3 12l7.2-2.8z" fill="#7A1125"/></svg><h4>The insight</h4><p>“You've thought about a trip to Europe. You just haven't thought about a camper.”</p></div>
+      <div class="blk"><h4>Where it came from</h4>
+        <p>I interviewed the founder. He talks to customers every day, and he kept describing the same person: a family with kids who had always done Europe as hotel, city and attractions, and had just booked a camper for the first time. So the audience wasn't “people who want a camper”. It was people already planning Europe who didn't know the camper option existed.</p>
+      </div>
+      <div class="blk"><h4>What's behind the creative</h4>
+        <p>This creative speaks to a cold audience that has never met Tevel Campers. The hook is the heart of it: “There's another way to travel Europe.” It breaks the default picture of a European holiday (hotel, city walk, attractions) and opens a new one. The viewer is already in-market for Europe and unaware of the category, so the ad sells the option, not the camper.</p>
+        <p>A big filtering caption, “Camper trips in Europe”, runs across the whole video, and Tevel's actual destinations stay on screen throughout. Anyone looking for something else scrolls on. That is what kept the leads clean. The body expands the experience and the package details, and lands the differentiation from competitors.</p>
+        <p>The visuals follow the words and give the feeling of the experience: waking up, driving, cooking, resting, the view. All real footage, no shoot, no actors, so the viewer feels the day and not a brochure.</p>
+        <p>My goal was for everyone who watched to say to themselves: “I have to look into this.” A very simple video, with a lot of thinking in it.</p>
+      </div>
+      <div class="blk"><h4>My role</h4><p>Audience work, concept, script and voiceover. Built lean from the founder's existing footage.</p></div>
+      <div class="blk"><h4>And then</h4><p>The video became the account's winner, and I built variations around it. It is still running and still winning. The bigger result for the business: brand-owned creative now carries the funnel, and the brand no longer depends on influencers for qualified leads. Creators still have a place, as a complement, not the engine.</p></div>
+      <div class="blk learned"><h4>What I learned</h4><p>Two things made the difference, and neither was the product. The angle addressed category unawareness instead of selling campers, and the on-screen filters did the qualifying before the lead form did.</p></div>
+      <div class="series">
+        <h3>More videos I made for Tevel Campers</h3>
+        <div class="mini">
+          <div class="cell"><video src="media/tv-first.mp4" poster="media/tv-first.jpg" muted loop playsinline preload="none"></video><div class="cap">First time in a camper?</div></div>
+          <div class="cell"><video src="media/tv-early.mp4" poster="media/tv-early.jpg" muted loop playsinline preload="none"></video><div class="cap">Early booking</div></div>
+          <div class="cell"><video src="media/tv-cheap.mp4" poster="media/tv-cheap.jpg" muted loop playsinline preload="none"></video><div class="cap">We're not the cheapest</div></div>
+          <div class="cell"><video src="media/tv-different.mp4" poster="media/tv-different.jpg" muted loop playsinline preload="none"></video><div class="cap">I wanted something different</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="think"><div class="wrap think">
+  <div class="sec-head">
+    <div class="eyebrow">This is how I work:</div>
+    <h2>Before I write a word, I already know what the audience is thinking and feeling.</h2>
+    <p>I don't guess what will work.<br>I get into the audience's head, into the thoughts they don't say out loud, and build the psychological funnel from there.</p>
+    <p class="steps-intro">Here are my steps,<br>for every video, every ad and every brief:</p>
+  </div>
+  <ol class="flow">
+    <li><span class="n">1</span><div><h3>Read the audience. Properly.</h3><p>What they want, their hidden thoughts, what will make them think, what makes their subconscious stop, and how they'll react.</p></div></li>
+    <li><span class="n">2</span><div><h3>Write what they want to hear. And what they don't.</h3><p>Combined with the visual and the message, so the funnel is built in their head before they know they're in one.</p></div></li>
+    <li><span class="n">3</span><div><h3>Export it as a brief, or write the script.</h3><p>Never fewer than three hooks. Never.</p></div></li>
+    <li><span class="n">4</span><div><h3>Stay with the creative through production.</h3><p>When needed I make the content myself. With an existing team, I brief and follow the process so the strategic idea survives to the final cut.</p></div></li>
+    <li><span class="n">5</span><div><h3>Launch, organic or paid.</h3><p>Then read the data.</p></div></li>
+    <li><span class="n">6</span><div><h3>A winner becomes the next winner.</h3><p>Not a winner? More experiments, more tests, until it cracks.</p></div></li>
+  </ol>
+</div></section>
+
+<!-- ANALYSIS + ABOUT -->
+<section id="analysis" class="band analysis"><div class="wrap">
+  <div class="sec-head" style="max-width:820px">
+    <div class="eyebrow">The other side of me · @kesemgalmidi</div>
+    <h2>You know the one who has to analyze everything? That's me.</h2>
+    <p class="an-lead"><span class="hl">This is what I do on my own channels:</span><br>why a pop star's single launch was close to genius. Why George Costanza is funny. Why Harvey Specter is persuasive. Hebrew, with English subtitles.</p>
+  </div>
+  <div class="reels">
+    <div><div class="player" data-player><video src="media/an-lovesong.mp4" poster="media/an-lovesong.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>“Love Song” · how Noa Kirel launched a single</small></div>
+    <div><div class="player" data-player><video src="media/an-george.mp4" poster="media/an-george.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>George Costanza</small></div>
+    <div><div class="player" data-player><video src="media/an-harvey.mp4" poster="media/an-harvey.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>The Harvey Specter mindset</small></div>
+    <div><div class="player" data-player><video src="media/an-disney.mp4" poster="media/an-disney.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>Disney: is it really for kids?</small></div>
+    <div><div class="player" data-player><video src="media/an-taylor.mp4" poster="media/an-taylor.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>Taylor Swift and the Super Bowl</small></div>
+    <div><div class="player" data-player><video src="media/an-frank.mp4" poster="media/an-frank.jpg" playsinline preload="none"></video><button aria-label="Play"><span><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>The Frank mindset</small></div>
+  </div>
+
+  <div class="story">
+    <div class="story-text">
+      <p class="big">I'm <em>obsessed with characters</em>. With understanding why we love one, why we hate one, and why we feel nothing for one.</p>
+      <p>And characters are us. The industry calls it an “avatar”; I'll keep calling it a character. Her scratches, her secret thoughts, her motives are what decide what she does.</p>
+      <p>That's why I studied literary editing and character writing, and trained as a mental performance coach: to understand what stops people from acting, and how we think.</p>
+      <p>And that is exactly how I think about creative. Crack the audience: what they want, what drives them, their hidden thoughts. From there, <em>hook, script, brief</em>, and from there I sell.</p>
+      <p class="big">And in the end? <span class="mark">It works<svg viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 3, 120 12, 180 7 S 260 4, 298 8" fill="none" stroke="#F2A7B5" stroke-width="3" stroke-linecap="round"/></svg></span>.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact" class="cta" style="background:var(--soft);border-top:1px solid var(--line)"><div class="wrap">
+  <div class="eyebrow">Let's talk</div>
+  <h2 style="margin-top:14px">Want me inside your audience's head?</h2>
+  <p class="cta-lead">I research your audience, audit your existing creatives and data, and crack new angles and concepts to test.<br>From there I turn the strategy into scripts, briefs and a test plan, and stay with execution and the learning from results.<br>A one-off cracking session or an ongoing creative process, whatever your brand needs.</p>
+  <p class="cta-x">What I offer:</p>
+  <ul class="cta-list" style="margin-top:12px">
+    <li>Audience research and message cracking.</li>
+    <li>Creative strategy for paid social.</li>
+    <li>Concepts and selling angles.</li>
+    <li>Scripts and briefs.</li>
+    <li>Guiding creative teams and learning from results.</li>
+  </ul>
+  <p class="cta-how"><b>Email:</b> <a href="mailto:kesemgalmidi@gmail.com" style="user-select:all">kesemgalmidi@gmail.com</a><br><b>How I work:</b> remote only, from Israel (GMT+2). Project work and monthly retainers. Full overlap with European hours, mornings with the US East Coast.</p>
+  <div class="cta-box">
+    <div class="cta-role">Kesem Galmidi</div>
+    <div class="cta-skills">Creative Strategist</div>
+    <div class="cta-actions">
+      <a class="btn big" href="https://wa.me/972549202100" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.6.7 1.9.5 2.3.5a2 2 0 0 0 1.4-1c.2-.5.2-.9.1-1z" fill="currentColor"/></svg>We want to work with you</a>
+      <span class="cta-note">Email: <a class="cta-phone" href="mailto:kesemgalmidi@gmail.com">kesemgalmidi@gmail.com</a> · WhatsApp: <span class="cta-phone">+972 54 920 2100</span></span>
+      <a class="li-link" href="https://www.linkedin.com/in/kesem-galmidi/" target="_blank" rel="noopener">Or find me on LinkedIn ↗</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- CASE INDEX -->
+<section id="more" class="band more"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">More case studies · scroll ↓</div>
+    <h2>Here are four more.<br>Another market, another audience, another angle.</h2>
+  </div>
+  <div class="case-index">
+    <a href="#course"><img src="media/tal-ad.jpg" alt=""><span><b>Selling a hair-loss course</b><small>59 purchases from one remarketing ad</small></span></a>
+    <a href="#victory"><img src="media/victory-which.jpg" alt=""><span><b>Victory</b><small>TikTok · comedy instead of selling</small></span></a>
+    <a href="#anabella"><img src="media/anabella-pain.jpg" alt=""><span><b>Anabella</b><small>Launch campaign · then remarketing that brought hundreds of purchases</small></span></a>
+    <a href="#pcm"><img src="media/pcm-hook1.jpg" alt=""><span><b>PCM</b><small>B2B · cheap, high-quality leads</small></span></a>
+  </div>
+</div></section>
+
+<!-- TAL -->
+<section id="course"><div class="wrap">
+  <div class="case">
+    <div class="side">
+      <div class="player r45" style="box-shadow:none"><img src="media/tal-ad.jpg" alt="The ad: stop the shedding in 7 days, fill the hair back in 90. Before and after, coupon code grow"></div>
+      <p class="ad-copy">The ad is in Hebrew. <b>Headline:</b> “Stop the shedding in 7 days, fill your hair back in 90.” <b>Body:</b> a list of the symptoms she may recognise, then “and now 20% off, which you can't afford to miss.” <b>Instead of a button:</b> “Coupon code: grow”.</p>
+    </div>
+    <div class="text">
+      <div class="title">
+        <div class="eyebrow">Tal · Digital course · Paid social · Hot remarketing · <span class="goal">Goal: purchases</span></div>
+        <h2>“Thinning hair” wasn't enough.</h2>
+        <p class="brand-line"><b>Tal</b> sells a digital course for women with hair loss: stop the shedding and grow the hair back, naturally.</p>
+      </div>
+      <div class="kpis"><div><b>59</b><span>purchases in 40 days, from one ad</span></div><div><b>₪68.94</b><span>cost per purchase · approx. $19</span></div></div>
+      <figure class="proof">
+        <div class="strip"><img src="media/tal-data.png" alt="The campaign row in Meta Ads Manager: 59 website purchases, ₪68.94 per purchase"></div>
+        <div class="zooms"><div class="zoom"><img src="media/tal-z-buys.png" alt=""><small>59 · Website purchases</small></div><div class="zoom"><img src="media/tal-z-cost.png" alt=""><small>₪68.94 · Cost per purchase</small></div></div>
+        <figcaption>From Meta Ads Manager (Hebrew interface).</figcaption>
+      </figure>
+      <div class="blk"><h4>What's behind the creative</h4>
+        <p>Hair-loss solutions are a brutally competitive market, and the woman has to recognise herself in the ad before she'll read a word about the solution. “Thinning hair” is too generic to trigger recognition, so I listed every problem she might actually have, and let each woman find hers. A before-and-after image sits next to a detailed explanation, so recognition and proof go together. And the headline shouts the solution, as a concrete promise the course makes.</p>
+        <p>The ad ran to a hot remarketing audience: women who had already visited the landing page several times without buying. They needed a push, not an introduction, so I used a coupon code. The line “and now 20% off, which you can't afford to miss” does the pushing, and instead of a standard call-to-action button I wrote “Coupon code: grow”, to lock the benefit in her head.</p>
+        <p>In 40 days the ad brought 59 course purchases. It became the winner, I ran a wave of variations on it, then moved it to a cold audience, where it brought further purchases.</p>
+      </div>
+      <div class="blk"><h4>My role</h4><p>Concept, copy and the static ads.</p></div>
+      <div class="blk learned"><h4>What I learned</h4><p>On a hot audience, specificity does the work. The more precisely the ad names her symptoms, the less it has to argue.</p></div>
+      <div class="series">
+        <h3>More statics I made for Tal · each one became a winner</h3>
+        <div class="mini ads">
+          <div class="cell"><img src="media/tal-ad2.jpg" alt="Ad: less hair in the brush"><div class="cap win">Winner</div></div>
+          <div class="cell"><img src="media/tal-ad3.jpg" alt="Ad: this exhausting ritual has to stop"><div class="cap win">Winner</div></div>
+          <div class="cell"><img src="media/tal-ad4.jpg" alt="Ad: how to stop shedding within 7 days, before and after"><div class="cap win">Winner</div></div>
+        </div>
+        <p class="ad-copy">Headlines, left to right: “Less hair coming out in the brush” · “This exhausting ritual has to stop” · “How to stop the shedding within 7 days”, with a before-and-after.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- VICTORY -->
+<section id="victory" style="background:var(--soft)"><div class="wrap">
+  <div class="case flip">
+    <div class="player" data-player><video src="media/victory-which.mp4" poster="media/victory-which.jpg" playsinline preload="none"></video><button aria-label="Play with sound"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN SUBS</div></div>
+    <div class="text">
+      <div class="title">
+        <img class="case-logo big" src="media/logo-victory.png" alt="Victory"><div class="eyebrow">Victory · TikTok · Organic · <span class="goal">Goal: traffic</span></div>
+        <h2>Every supermarket tries to sell. On Victory's TikTok, the opposite.</h2>
+        <p class="brand-line"><b>Victory</b> is a national supermarket chain in Israel. They brought me in to drive traffic to Victory on TikTok.</p>
+      </div>
+      <div class="insight blk"><svg class="corner" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 7.2L21 12l-7.2 2.8L12 22l-1.8-7.2L3 12l7.2-2.8z" fill="#7A1125"/></svg><h4>The strategy</h4><p>Don't talk about the supermarket. At all.<br>Make comedy videos built for TikTok: easy to relate to, easy to laugh at, easy to remember.</p></div>
+      <div class="blk"><h4>What's behind the creative</h4><p>Every supermarket tries to sell. It pushes the deals, and how much better it is than the others. The strategy I built for Victory's TikTok is the opposite: not a word about the chain, the deals or the products. Instead, comedy videos, memorable and native to TikTok, out of situations everyone recognises. The supermarket is nothing more than the location.</p><p>I made hundreds of videos that bring traffic, comments and friends tagging friends, and keep a humorous brand voice people recognise as Victory's.</p></div>
+      <div class="blk"><h4>My role</h4><p>The strategy, and the videos.</p></div>
+      <div class="blk"><h4>A note for readers abroad</h4><p>The humour is in Hebrew and very local; the subtitles carry the gist. The strategic move travels, the jokes less so.</p></div>
+    </div>
+  </div>
+  <div class="series">
+    <h3>More videos I made for Victory</h3>
+    <div class="mini">
+      <div class="cell"><video src="media/victory-situations.mp4" poster="media/victory-situations.jpg" muted loop playsinline preload="none"></video><div class="cap">Situations</div></div>
+      <div class="cell"><video src="media/v-pasta.mp4" poster="media/v-pasta.jpg" muted loop playsinline preload="none"></video><div class="cap">More pasta</div></div>
+      <div class="cell"><video src="media/victory-krembo.mp4" poster="media/victory-krembo.jpg" muted loop playsinline preload="none"></video><div class="cap">Krembo</div></div>
+      <div class="cell"><video src="media/v-kippur.mp4" poster="media/v-kippur.jpg" muted loop playsinline preload="none"></video><div class="cap">Yom Kippur</div></div>
+      <div class="cell"><video src="media/victory-snacks.mp4" poster="media/victory-snacks.jpg" muted loop playsinline preload="none"></video><div class="cap">Snacks</div></div>
+      <div class="cell"><video src="media/v-alone.mp4" poster="media/v-alone.jpg" muted loop playsinline preload="none"></video><div class="cap">Living alone</div></div>
+      <div class="cell"><video src="media/victory-hanukkah.mp4" poster="media/victory-hanukkah.jpg" muted loop playsinline preload="none"></video><div class="cap">Hanukkah</div></div>
+      <div class="cell"><video src="media/v-rosh.mp4" poster="media/v-rosh.jpg" muted loop playsinline preload="none"></video><div class="cap">Rosh Hashanah</div></div>
+      <div class="cell"><video src="media/v-bbq.mp4" poster="media/v-bbq.jpg" muted loop playsinline preload="none"></video><div class="cap">BBQ in the sukkah</div></div>
+      <div class="cell"><video src="media/v-fall.mp4" poster="media/v-fall.jpg" muted loop playsinline preload="none"></video><div class="cap">Autumn is here</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ANABELLA -->
+<section id="anabella"><div class="wrap">
+  <div class="case">
+    <div class="player" data-player><video src="media/anabella-pain.mp4" poster="media/anabella-pain.jpg" playsinline preload="none"></video><button aria-label="Play with sound"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN SUBS</div></div>
+    <div class="text">
+      <div class="title">
+        <img class="case-logo" src="media/logo-anabella.svg" alt="Anabella"><div class="eyebrow">Anabella · Launch campaign · Paid social · <span class="goal">Goal: sales</span></div>
+        <h2>Women go through enough. Pumping shouldn't hurt too.</h2>
+        <p class="brand-line"><b>Anabella</b> is a wearable breast pump with a patented mechanism that mimics the movement of a baby's tongue. The task: launch a new pump into a crowded market, and sell it.</p>
+      </div>
+      <div class="insight blk"><svg class="corner" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l1.8 7.2L21 12l-7.2 2.8L12 22l-1.8-7.2L3 12l7.2-2.8z" fill="#7A1125"/></svg><h4>The insight</h4><p>Women already go through enough to be women. A woman shouldn't have to suffer when she pumps, too.</p></div>
+      <div class="blk"><h4>What's behind the creative</h4>
+        <p>Anabella's mechanism makes pumping painless. But the breast-pump category is saturated, and the audience does its homework: mothers compare specs, read reviews, ask other mothers. A spec-led launch would have landed as one more pump. So I chose to play on emotion.</p>
+        <p>A woman knows she puts up with a lot to be a woman: eyebrows, waxing, facials, laser. So the question arrives to unsettle her: “Do you have to suffer when you pump, too?”</p>
+        <p>Because the mechanism is a patent, and it is the main thing that separates Anabella from every other pump. It promises pumping without pain.</p>
+      </div>
+      <div class="blk"><h4>My role</h4><p>Concept, scripts and creatives for the launch and the remarketing series.</p></div>
+      <div class="series">
+        <h3>More creatives I made for Anabella</h3>
+        <div class="mini">
+          <div class="cell"><video src="media/x-unboxing.mp4" poster="media/x-unboxing.jpg" muted loop playsinline preload="none"></video><div class="cap">Unboxing</div></div>
+          <div class="cell"><video src="media/x-2.mp4" poster="media/x-2.jpg" muted loop playsinline preload="none"></video><div class="cap">Did you know?</div></div>
+          <div class="cell"><img src="media/ana-static.jpg" alt="Static ad: which mother do you choose to be"><div class="cap">Static · “Which mother do you choose to be?”</div></div>
+        </div>
+      </div>
+      <div class="blk"><h4>And then: the remarketing</h4>
+        <p>The hottest audience, the women who had already watched and compared, didn't need more persuasion. They needed confidence. So we filmed professional Q&amp;A videos answering the exact questions customer service gets dozens of times a day. It did the job: the remarketing brought hundreds of purchases.</p>
+        <div class="mini">
+          <div class="cell"><video src="media/ana-q1.mp4" poster="media/ana-q1.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="cell"><video src="media/ana-q4.mp4" poster="media/ana-q4.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="cell"><video src="media/ana-q5.mp4" poster="media/ana-q5.jpg" muted loop playsinline preload="none"></video></div>
+          <div class="cell"><video src="media/ana-q13.mp4" poster="media/ana-q13.jpg" muted loop playsinline preload="none"></video></div>
+        </div>
+      </div>
+      <div class="blk learned"><h4>What I learned</h4><p>In a research-heavy category the launch job is emotional and the remarketing job is reassurance. The questions customer service already answers every day are the best remarketing script there is.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- PCM -->
+<section id="pcm" style="background:var(--soft)"><div class="wrap case flip">
+  <div class="hooks">
+    <div><div class="player" data-player><video src="media/pcm-hook1.mp4" poster="media/pcm-hook1.jpg" playsinline preload="none"></video><button aria-label="Play video 1"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>Hook 1</small></div>
+    <div><div class="player" data-player><video src="media/pcm-hook2.mp4" poster="media/pcm-hook2.jpg" playsinline preload="none"></video><button aria-label="Play video 2"><span><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></button><div class="cc">EN</div></div><small>Hook 2</small></div>
+  </div>
+  <div class="text">
+    <div class="title">
+      <img class="case-logo pcm" src="media/logo-pcm.png" alt="PCM"><div class="eyebrow">PCM · Sealants for trade professionals · Paid social · B2B · <span class="goal">Goal: leads</span></div>
+      <h2>To sell silicone to contractors, I don't talk about the product. I talk about their professional pride.</h2>
+      <p class="brand-line"><b>PCM</b> is an established Israeli supplier of building and finishing materials for trade professionals, with 450 stores. The flagship product: silicone sealants.</p>
+    </div>
+    <div class="blk"><h4>What's behind the creative</h4>
+      <p><b>The audience:</b> contractors and tradespeople.<br><b>The goal:</b> relevant leads, and sales of silicone and everyday work products.<br><b>The main problem:</b> creatives that fatigue very fast, and fastest of all around the silicone, the company's flagship product.</p>
+      <p>I made a video that speaks to the professionals' honour and ego, and tells them “you're not professional enough” if you choose cheap, low-quality silicone. In effect I turned the blame for bad work back on them. Because they love blaming the client.</p>
+      <p>Without saying it outright, I implied that PCM's silicones are the best on the market, and that choosing them is what makes you a much better professional.</p>
+      <p>Worth stating: this is a running campaign with dozens of ads, and this is the one ad that delivers the message in reverse.</p>
+    </div>
+    <div class="blk"><h4>My role</h4><p>Concept, script and video.</p></div>
+    <div class="blk"><h4>The client's reaction</h4><div class="pcm-quote">“The campaigns with the new ads are a rocket! Tons of leads came in, cheap and really high quality.”<small>PCM, by WhatsApp · translated from Hebrew</small></div></div>
+    <div class="blk learned"><h4>What I learned</h4><p>In B2B the ego is a stronger lever than the spec sheet. A message that challenges the buyer's identity outlasts a message that praises the product.</p></div>
+    <div class="series">
+      <h3>More videos for PCM · different formats and messages · all winners</h3>
+      <div class="mini">
+        <div class="cell"><video src="media/x-450.mp4" poster="media/x-450.jpg" muted loop playsinline preload="none"></video><div class="cap">450 stores · sales</div></div>
+        <div class="cell"><video src="media/x-vo-sales.mp4" poster="media/x-vo-sales.jpg" muted loop playsinline preload="none"></video><div class="cap">Sales voiceover</div></div>
+        <div class="cell"><video src="media/x-mamuman2.mp4" poster="media/x-mamuman2.jpg" muted loop playsinline preload="none"></video><div class="cap">Big Wipes · demo</div></div>
+        <div class="cell"><video src="media/x-vo.mp4" poster="media/x-vo.jpg" muted loop playsinline preload="none"></video><div class="cap">Rhino Guard · voiceover</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- TESTIMONIALS -->
+<section id="quotes" style="border-top:1px solid var(--line)"><div class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">What clients say after working with me</div>
+    <h2>On the process, the precision, and the results.</h2>
+    <p class="translated">Client messages, translated from Hebrew.</p>
+  </div>
+  <div class="quotes">
+    <div class="col">
+      <div class="quote"><p>I've worked with people from many fields on videos before, and Kesem is on a different level, beyond excellence. She invests in every detail, sharpens and refines, keeps the person in front of her in focus, and distils the message clearly and professionally. The whole process was built beautifully, from the preparation and focus before the shoot through to the final result. Results that exceeded every expectation.</p><small><b>Yehudit</b> · client</small></div>
+    </div>
+    <div class="col">
+      <div class="quote"><p>I completely won with you. You're a genius! A pleasure to work with you. From the specific project, to the collaboration, to the fast responses, to the learning: there are no words for how satisfied I am.</p><small>Client · by WhatsApp</small></div>
+      <div class="quote"><p>Thank you, Kesem. Grateful for the privilege of working with you, for the patience and the empathy.</p><small>Client · by WhatsApp</small></div>
+    </div>
+    <div class="col">
+      <div class="quote"><p>My magician! Thank you for the time, the push, the promotion and the effort you put into the guidance. Choosing you was a great choice. And the gift you gave me: precise, perfect and exciting. How you always think about the small details!</p><small>Client · by WhatsApp</small></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="final band"><div class="wrap final-in">
+  <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l1.8 7.2L21 12l-7.2 2.8L12 22l-1.8-7.2L3 12l7.2-2.8z" fill="#F2A7B5"/></svg>
+  <h2>Want me inside<br>your audience's head?</h2>
+  <p>Kesem Galmidi · Creative Strategist · Remote</p>
+  <ul class="offer">
+    <li>Audience research and message cracking.</li>
+    <li>Creative strategy for paid social.</li>
+    <li>Concepts and selling angles.</li>
+    <li>Scripts and briefs.</li>
+    <li>Guiding creative teams and learning from results.</li>
+  </ul>
+  <a class="btn big" href="https://wa.me/972549202100" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.6.7 1.9.5 2.3.5a2 2 0 0 0 1.4-1c.2-.5.2-.9.1-1z" fill="currentColor"/></svg>We want to work with you</a>
+  <small>Email: <b>kesemgalmidi@gmail.com</b> · WhatsApp: <b>+972 54 920 2100</b></small>
+  <a class="li-link" href="https://www.linkedin.com/in/kesem-galmidi/" target="_blank" rel="noopener">Or find me on LinkedIn ↗</a>
+  <footer><span>© Kesem Galmidi</span><a href="https://www.linkedin.com/in/kesem-galmidi/" target="_blank" rel="noopener">LinkedIn</a></footer>
+</div></section>
+
+<script>
+(function(){
+  var players=[].slice.call(document.querySelectorAll('[data-player]'));
+  players.forEach(function(p){
+    var v=p.querySelector('video'),b=p.querySelector('button');
+    if(!v||!b)return;
+    b.addEventListener('click',function(){
+      if(v.paused){players.forEach(function(o){var ov=o.querySelector('video');if(ov&&ov!==v){ov.pause();o.classList.remove('playing');}});
+        v.muted=false;v.play().then(function(){p.classList.add('playing');}).catch(function(){});
+      }else{v.pause();p.classList.remove('playing');}
+    });
+    v.addEventListener('ended',function(){p.classList.remove('playing');v.currentTime=0;});
+  });
+  /* Loops: load and play only while on screen, release when off screen (phones cap concurrent decoders).
+     If a file can't be decoded, fall back to the poster instead of a black box. */
+  var loops=[].slice.call(document.querySelectorAll('.feed video,.mini video'));
+  loops.forEach(function(v){
+    v.dataset.src=v.getAttribute('src');v.removeAttribute('src');
+    v.addEventListener('error',function(){v.removeAttribute('src');v.load();},true);
+  });
+  function wake(v){if(!v.getAttribute('src')&&v.dataset.src){v.setAttribute('src',v.dataset.src);v.load();}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  function sleep(v){v.pause();if(v.getAttribute('src')){v.removeAttribute('src');v.load();}}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?wake(e.target):sleep(e.target);});},{rootMargin:'120px 0px',threshold:.1});
+    loops.forEach(function(v){io.observe(v);});
+  }else{loops.forEach(wake);}
+  document.addEventListener('visibilitychange',function(){if(document.hidden)loops.forEach(function(v){v.pause();});});
+})();
+</script>
+
+</body>
+</html>
